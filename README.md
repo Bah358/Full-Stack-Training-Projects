@@ -1,0 +1,1 @@
+This is a Full Stack Developer Bootcamp that allows hands on the lates technologies in Front-End, Back-End, and Databases leading to a full stack development expert. In this repository you can find projects that I have applied to enhance my experience and my knowledge in all of these technologies.
