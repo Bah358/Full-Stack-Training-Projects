@@ -1,15 +1,17 @@
 import express from "express";
 import axios from "axios";
+import env from "dotenv";
 
 const app = express();
 const port = 3000;
 const API_URL = "https://secrets-api.appbrewery.com/";
+env.config();
 
 //TODO 1: Fill in your values for the 3 types of auth.
-const yourUsername = "bahaaa";
-const yourPassword = "Alskdjfhg";
-const yourAPIKey = "6130b96c-6617-4a7e-98fd-94751400c4f8";
-const yourBearerToken = "062ce1f7-8613-449b-a83d-06307fc834d2";
+const yourUsername = process.env.YOUR_USERNAME;
+const yourPassword = process.env.YOUR_PASSWORD;
+const yourAPIKey = process.env.YOUR_APIKEY;
+const yourBearerToken = process.env.YOUR_BEARERTOKEN;
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { content: "API Response." });
@@ -74,7 +76,7 @@ app.get("/bearerToken", async (req, res) => {
       },
     })
     res.render("index.ejs", {content: JSON.stringify(response.data)});
-  } catch(err) {
+  } catch(error) {
     res.status(404).send(error.message);
   }
   //TODO 5: Write your code here to hit up the /secrets/{id} endpoint
